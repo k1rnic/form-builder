@@ -1,17 +1,25 @@
+import 'antd/dist/antd.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import styled from 'styled-components';
+import Form from './components/Form';
+import { FORM_SCHEMA } from './data/form-schema-data';
+
+const StyledLayout = styled.div`
+  height: 100vh;
+`;
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <StyledLayout>
+    <Form
+      schema={FORM_SCHEMA}
+      values={{
+        select_1: '2',
+        multi_select_1: ['1', '4'],
+        combo_1: ['2', '3'],
+        combo_2: 5,
+      }}
+    />
+  </StyledLayout>,
+  document.getElementById('root'),
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
